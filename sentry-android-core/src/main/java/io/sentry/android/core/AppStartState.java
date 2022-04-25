@@ -23,6 +23,9 @@ public final class AppStartState {
   /** appStart as a Date used in the App's Context */
   private @Nullable Date appStartTime;
 
+  /** didFetchAppStart as a Boolean which will kepp a track if app start time is set or not */
+  private Boolean didFetchAppStart;
+
   private AppStartState() {}
 
   public static @NotNull AppStartState getInstance() {
@@ -65,6 +68,14 @@ public final class AppStartState {
   @Nullable
   public Date getAppStartTime() {
     return appStartTime;
+  }
+
+  public Boolean getDidFetchAppStart() {
+    return this.didFetchAppStart;
+  }
+
+  public Boolean setDidFetchAppStart() {
+    this.didFetchAppStart = true;
   }
 
   synchronized void setAppStartTime(final long appStartMillis, final @NotNull Date appStartTime) {
